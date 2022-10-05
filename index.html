@@ -1,0 +1,80 @@
+<!doctype html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>BMI Calculator</title>
+	
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.2/build/pure-min.css" integrity="sha384-UQiGfs9ICog+LwheBSRCt1o5cbyKIHbwjWscjemyBMT9YCUMZffs6UqUTd0hObXD" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<h1 style="color:rgb(0, 0, 0);">BMI CALCULATOR:</h1><br>
+
+<body>
+  <style>
+    body {
+      background-image: url('https://i.postimg.cc/jdmgxyVP/pexels-the-lazy-artist-gallery-999250.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+    </style>
+
+<div class="main">
+	<form class="pure-form" method="POST" action="/">
+    <br>
+  <h2 style="color:Red;">Weight in Kgs:</h2><br>
+	<input type="text" name="weight"><br>
+  <br>
+	<h2 style="color:Red;">Height in M:</h2><br>
+	<input type="text" name="height"><br>
+  <br>
+	<button type="submit" class="pure-button pure-button-primary" value="Submit">Submit</button>
+	</form>
+</div>
+
+<br>
+
+<div class="main">
+	{% if bmi %}
+	    <p>
+        {% print("Your BMI is {}.".format(bmi)) %}   
+        </p>   
+	{% endif %}
+</div>
+<div class="main">
+	{% if bmi<18.5 %}
+	    <p>
+        {% print("You are UnderWeight")%}   
+        </p>   
+	{% endif %}
+</div>
+<div class="main">
+	{% if bmi<25 and bmi>18.5 %}
+	    <p>
+        {% print("You are Normal")%}   
+        </p>   
+	{% endif %}
+</div>
+<div class="main">
+	{% if bmi<30 and bmi>25 %}
+	    <p>
+        {% print("You are Overweight")%}   
+        </p>   
+	{% endif %}
+</div>
+<div class="main">
+	{% if bmi>30 %}
+	    <p>
+        {% print("You are in Obesity")%}   
+        </p>   
+	{% endif %}
+</div>
+
+
+
+</body>
